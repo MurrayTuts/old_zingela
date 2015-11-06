@@ -1,5 +1,5 @@
 class ManageController < ApplicationController
-  before_action :allow_admin, only: [:companies,:edit_company,:delete_company]
+  before_action :allow_admin, only: [:companies,:edit_company,:delete_company,:update_company]
   def companies
     @companies = Company.all
   end
@@ -11,10 +11,21 @@ class ManageController < ApplicationController
   end
   def delete_company
     Company.delete(params[:id])
-    redirect_to root_path
+    redirect_to manage_companies_path
   end
-private
-  def allow_admin
-    redirect_to new_admin_session_path unless admin_signed_in?
+  def update_company
+    @company = Company.find(params[:id])
+    if @company.update(company_params)
+      redirect_to "/edit/company/#{@company.id}", notice: 'Company was successfully updated.'
+    else
+      render :edit_company
+    end
   end
+  private
+    def allow_admin
+      redirect_to new_admin_session_path unless admin_signed_in?
+    end
+    def company_params
+        params.require(:company).permit(:company_name, :email, :password, :password_confirmation)
+    end
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'manage/users'   => :users
     get 'edit/company/:id'   => :edit_company
     get 'delete/company/:id'   => :delete_company
+    patch 'update/company/:id'   => :update_company
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
