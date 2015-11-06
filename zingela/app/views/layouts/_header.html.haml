@@ -12,13 +12,42 @@
         - if admin_signed_in?
           %li
             =link_to 'New Company', new_company_registration_path
-      %ul.nav.navbar-nav.navbar-right
-        - if admin_signed_in?
           %li
-            =link_to 'Logout', destroy_admin_session_path, :method => :delete
-        - if user_signed_in?
-          %li
-            =link_to 'Logout', destroy_user_session_path, :method => :delete
+            =link_to 'Manage Companies', manage_companies_path
         - if company_signed_in?
           %li
-            =link_to 'Logout', destroy_company_session_path, :method => :delete
+            =link_to 'New User', new_user_registration_path
+          %li
+            =link_to 'Manage Users', manage_users_path
+      %ul.nav.navbar-nav.navbar-right
+        - if admin_signed_in?
+          %li.logout
+            =link_to 'Logout <i class="fa fa-sign-out"></i>'.html_safe, destroy_admin_session_path, :method => :delete
+        - if user_signed_in?
+          %li.logout
+            =link_to 'Logout <i class="fa fa-sign-out"></i>'.html_safe, destroy_user_session_path, :method => :delete
+        - if company_signed_in?
+          %li.logout
+            =link_to 'Logout <i class="fa fa-sign-out"></i>'.html_safe, destroy_company_session_path, :method => :delete
+            %i.fa.fa-sign-out
+        - user_active = ""
+        - admin_active = ""
+        - company_active = ""
+        - is_login_screen = ""
+        - if request.original_url.include? "admins/sign_in"
+          - admin_active = "active"
+          - is_login_screen = true
+        - if request.original_url.include? "users/sign_in"
+          - user_active = "active"
+          - is_login_screen = true
+        - if request.original_url.include? "companies/sign_in"
+          - company_active = "active"
+          - is_login_screen = true
+        - if is_login_screen == true
+          %ul.nav.nav-pills.pull-right
+            %li{:role => "presentation", :class => "#{user_active}"}
+              %a{:href => "/users/sign_in/"} User Login
+            %li{:role => "presentation", :class => "#{company_active}"}
+              %a{:href => "/companies/sign_in/"} Company Login
+            %li{:role => "presentation", :class => "#{admin_active}"}
+              %a{:href => "/admins/sign_in/"} Admin Login

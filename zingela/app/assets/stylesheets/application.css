@@ -14,11 +14,13 @@
  *= require_self
  */
 .alert{
-  border-radius: 0px !;
+  border-radius: 0px !important;
   margin: 0px;
 }
 .navbar-brand {
     height: 60px;
+    margin: 0px;
+    padding: 5px;
 }
 .navbar-default .navbar-nav a{
     height: 60px;
@@ -58,4 +60,13 @@ a:hover{
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+}
+.btn-success:hover{
+  color: #fff;
+}
+a.btn-success{
+  color: #fff;
+}
+a:hover,a:focus{
+  outline: none;
 }

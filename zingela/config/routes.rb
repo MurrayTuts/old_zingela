@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  resources :manages
-  resources :manage
+
   resources :welcomes
   devise_for :companies, controllers: { registrations: "companies/registrations" }
   devise_for :admins
   devise_for :users, controllers: { registrations: "user/registrations" }
   get '/sign_out' => 'devise/sessions#destroy'
-  get '/sign_out' => 'devise/sessions#destroy'
-
+  controller :manage do
+    get 'manage/companies'     => :companies
+    get 'manage/users'   => :users
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

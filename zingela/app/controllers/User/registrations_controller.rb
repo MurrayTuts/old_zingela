@@ -2,15 +2,20 @@ class User::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 before_filter :deny_to_users_and_admins
+
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    if resource.errors.empty?
+      resource.update(company_id:current_company.id)
+      sign_out resource
+    end
+  end
 
   # GET /resource/edit
   # def edit
