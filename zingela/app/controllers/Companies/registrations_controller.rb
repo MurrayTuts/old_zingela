@@ -2,15 +2,21 @@ class Companies::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 before_filter :deny_to_users_and_companies
+before_action :configure_permitted_parameters
+
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    if resource.errors.empty?
+      resource.update(admin_id:current_admin.id)
+      sign_out resource
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -57,7 +63,15 @@ before_filter :deny_to_users_and_companies
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
   def deny_to_users_and_companies
-    redirect_to new_admin_session unless admin_signed_in?
+    redirect_to new_admin_session_path unless admin_signed_in?
+
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :company_name
   end
 end

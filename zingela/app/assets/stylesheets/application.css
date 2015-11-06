@@ -24,3 +24,38 @@
     height: 60px;
     padding-top: 25px;
 }
+.login-container{
+    background: url(http://thehorticult.com/wp-content/uploads/2013/09/Sensitive-Plant-Mimosa-pudica-thehorticult.gif);
+    max-width: 300px;
+    color: #fff;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-container h2{
+  background: rgb(134, 20, 50) none repeat scroll 0% 0%;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+.login-form-container {
+    padding: 15px;
+}
+.login-form-container a{
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+a:hover{
+  background: none;
+  text-decoration: none;
+}
+.panel-footer{
+  min-height: 50px;
+}
+.panel.panel-primary.create{
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -15,4 +15,10 @@
       %ul.nav.navbar-nav.navbar-right
         - if admin_signed_in?
           %li
-            =link_to 'Logout', destroy_admin_session_path, :method => :delete 
+            =link_to 'Logout', destroy_admin_session_path, :method => :delete
+        - if user_signed_in?
+          %li
+            =link_to 'Logout', destroy_user_session_path, :method => :delete
+        - if company_signed_in?
+          %li
+            =link_to 'Logout', destroy_company_session_path, :method => :delete
