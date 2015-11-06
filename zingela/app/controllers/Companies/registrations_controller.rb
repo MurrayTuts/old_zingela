@@ -1,7 +1,7 @@
 class Companies::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
-
+before_filter :deny_to_users_and_companies
   # GET /resource/sign_up
   # def new
   #   super
@@ -57,4 +57,7 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  def deny_to_users_and_companies
+    redirect_to new_admin_session unless admin_signed_in?
+  end
 end

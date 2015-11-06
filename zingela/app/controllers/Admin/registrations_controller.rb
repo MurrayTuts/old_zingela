@@ -1,6 +1,6 @@
 class Admin::RegistrationsController < Devise::RegistrationsController
-# before_filter :configure_sign_up_params, only: [:create]
-# before_filter :configure_account_update_params, only: [:update]
+before_filter :configure_sign_up_params, only: [:create]
+before_filter :route_to_login
 
   # GET /resource/sign_up
   # def new
@@ -57,4 +57,8 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+    def route_to_login
+      redirect_to new_admin_session_path
+    end
 end

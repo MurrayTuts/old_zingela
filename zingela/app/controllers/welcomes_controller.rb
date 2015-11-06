@@ -11,6 +11,6 @@ class WelcomesController < ApplicationController
 private
 
 def deny_to_visitors
-  redirect_to new_user_session unless user_signed_in? or admin_signed_in? or company_signed_in?
+  redirect_to new_user_session_path unless user_signed_in? or admin_signed_in? or company_signed_in?
 end
 end
