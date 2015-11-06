@@ -14,7 +14,9 @@
         %td= company.company_name
         %td= company.email
         %td= Admin.find(company.admin_id).email
-        %td= link_to 'Edit', edit_company_registration_path(company), class:"btn btn-default"
-        %td= link_to 'Destroy', company_registration_path(company), :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn btn-danger"
+        %td
+          %a.btn.btn-default{:href => "/edit/company/#{company.id}"}Edit
+        %td
+          %a.btn.btn-danger{:href => "/delete/company/#{company.id}"}Delete
 %br
 = link_to 'New Company', new_company_registration_path, class:"btn btn-success pull-right"
