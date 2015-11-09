@@ -1,3 +1,4 @@
+%div#hello
 %nav.navbar.navbar-default
   .container-fluid
     .navbar-header
@@ -29,7 +30,6 @@
         - if company_signed_in?
           %li.logout
             =link_to 'Logout <i class="fa fa-sign-out"></i>'.html_safe, destroy_company_session_path, :method => :delete
-            %i.fa.fa-sign-out
         - user_active = ""
         - admin_active = ""
         - company_active = ""

@@ -1,5 +1,6 @@
 class ManageController < ApplicationController
   before_action :allow_admin, only: [:companies,:edit_company,:delete_company,:update_company]
+  before_action :allow_company, only: [:users]
   def companies
     @companies = Company.all
   end
@@ -24,6 +25,9 @@ class ManageController < ApplicationController
   private
     def allow_admin
       redirect_to new_admin_session_path unless admin_signed_in?
+    end
+    def allow_company
+      redirect_to new_company_session_path unless company_signed_in?
     end
     def company_params
         params.require(:company).permit(:company_name, :email, :password, :password_confirmation)
