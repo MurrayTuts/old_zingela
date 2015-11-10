@@ -26,28 +26,27 @@
     height: 60px;
     padding-top: 25px;
 }
-.login-container{
-    background: url(http://thehorticult.com/wp-content/uploads/2013/09/Sensitive-Plant-Mimosa-pudica-thehorticult.gif);
+.login-container {
     max-width: 350px;
-    color: #fff;
-    border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 10px 10px 5px 9px #888;
+    background: #FFF none repeat scroll 0% 0%;
+    color: #666;
 }
 
-.login-container h2{
-  background: #c3c3c3;
-  border-radius: 5px;
-  padding: 10px;
-  text-align: center;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+.login-container h2 {
+    padding: 10px;
+    text-align: center;
+    background: #444 none repeat scroll 0% 0%;
+    color: #f1f1ff;
 }
+
 .login-form-container {
     padding: 15px;
 }
 .login-form-container a{
-  color: #fff;
+  color: #666;
   text-align: center;
   width: 100%;
 }
@@ -62,6 +61,31 @@ a:hover{
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 0px;
+  box-shadow: 10px 10px 5px 9px #888;
+
+}
+#error_explanation h2{
+ background: #D12116;
+}
+#error_explanation {
+ border: 1px solid #D12116;
+}
+.field_with_errors{
+  background: none;
+  color: #D12116;
+  display: block;
+  padding: 0px;
+}
+.field_with_errors input{
+    border: 2px solid #D12116;
+}
+.panel.panel-primary.create .panel-heading{
+  border-radius: 0px;
+
+}
+.panel.panel-primary.create input{
+  border-radius: 0px;
 }
 .btn-success:hover{
   color: #fff;
