@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :projects
   resources :welcomes
   devise_for :companies, controllers: { registrations: "companies/registrations" }
   devise_for :admins
