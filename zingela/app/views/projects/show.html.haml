@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @project.name
+%p
+  %b Start date:
+  = @project.start_date
+%p
+  %b Expected delivery date:
+  = @project.expected_delivery_date
+%p
+  %b Actual delivery date:
+  = @project.actual_delivery_date
+%p
+  %b Active:
+  = @project.active
+%p
+  %b Date changed:
+  = @project.date_changed
+%p
+  %b User:
+  = @project.user_id
+%p
+  %b Company:
+  = @project.company_id
+
+= link_to 'Edit', edit_project_path(@project)
+\|
+= link_to 'Back', projects_path
