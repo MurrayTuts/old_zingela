@@ -10,7 +10,7 @@
     = f.date_select :date
   .field
     = f.label :location_id
-    = f.number_field :location_id
+    = f.collection_select(:location_id, Location.all, :id, :name, {}, {:class=>'form-control'})
   .field
     = f.label :latitude_degree
     = f.number_field :latitude_degree

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :locations
   resources :field_data
   resources :projects
   resources :welcomes

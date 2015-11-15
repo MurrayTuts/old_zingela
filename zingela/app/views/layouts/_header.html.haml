@@ -21,13 +21,11 @@
             =link_to 'Manage Users', manage_users_path
         - if user_signed_in?
           %li
-            =link_to 'New Project', new_project_path
-          %li
             =link_to 'Manage Projects', projects_path
           %li
-            =link_to 'New Field Data', new_field_datum_path
+            =link_to 'Manage Field Data', field_data_path
           %li
-            =link_to 'Manage Field Data', field_data_path  
+            =link_to 'Manage Locations', locations_path
       %ul.nav.navbar-nav.navbar-right
         - if admin_signed_in?
           %li.logout

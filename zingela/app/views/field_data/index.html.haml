@@ -14,7 +14,7 @@
     - @field_data.each do |field_datum|
       %tr
         %td= field_datum.date
-        %td= field_datum.location_id
+        %td= Location.find(field_datum.location_id).name
         %td= Project.find(field_datum.project_id).name
         %td= User.find(field_datum.user_id).email
         %td= link_to 'Show', field_datum
