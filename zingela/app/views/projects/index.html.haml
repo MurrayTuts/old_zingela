@@ -1,5 +1,7 @@
-%h1 Listing projects
-
+%h1.page-header
+  Listing
+  %small
+    Projects
 %table.table
   %thead
     %tr
@@ -9,7 +11,6 @@
       %th
       %th
       %th
-
   %tbody
     - @projects.each do |project|
       %tr

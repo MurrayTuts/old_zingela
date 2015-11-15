@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115144529) do
+ActiveRecord::Schema.define(version: 20151115214853) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255
@@ -98,6 +98,25 @@ ActiveRecord::Schema.define(version: 20151115144529) do
     t.integer  "company_id",             limit: 4
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+  end
+
+  create_table "species", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.string   "potential_biomass", limit: 255
+    t.string   "species",           limit: 255
+    t.string   "threat_status",     limit: 255
+    t.string   "sa_endemic",        limit: 255
+    t.string   "sysnonym_of",       limit: 255
+    t.string   "common_name",       limit: 255
+    t.string   "life_cycle",        limit: 255
+    t.string   "growth_forms",      limit: 255
+    t.string   "min_hieght",        limit: 255
+    t.string   "max_height",        limit: 255
+    t.string   "min_altitude",      limit: 255
+    t.string   "max_altitude",      limit: 255
+    t.string   "distribution",      limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade do |t|

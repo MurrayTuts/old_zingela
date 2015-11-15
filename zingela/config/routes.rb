@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :species
   resources :locations
   resources :field_data
   resources :projects

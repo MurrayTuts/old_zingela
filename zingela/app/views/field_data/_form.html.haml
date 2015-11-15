@@ -13,25 +13,25 @@
     = f.collection_select(:location_id, Location.all, :id, :name, {}, {:class=>'form-control'})
   .field
     = f.label :latitude_degree
-    = f.number_field :latitude_degree
+    = f.number_field :latitude_degree,:class=>'form-control'
   .field
     = f.label :latitude_minutes
-    = f.number_field :latitude_minutes
+    = f.number_field :latitude_minutes,:class=>'form-control'
   .field
     = f.label :latitude_seconds
-    = f.text_field :latitude_seconds
+    = f.text_field :latitude_seconds,:class=>'form-control'
   .field
     = f.label :longitude_degree
-    = f.number_field :longitude_degree
+    = f.number_field :longitude_degree,:class=>'form-control'
   .field
     = f.label :longitude_minutes
-    = f.number_field :longitude_minutes
+    = f.number_field :longitude_minutes,:class=>'form-control'
   .field
     = f.label :longitude_seconds
-    = f.text_field :longitude_seconds
+    = f.text_field :longitude_seconds,:class=>'form-control'
   .field
     = f.label :habitat_description
-    = f.text_field :habitat_description
+    = f.text_field :habitat_description,:class=>'form-control'
   .field
     = f.label :project_id
     = f.collection_select(:project_id, Project.all, :id, :name, {}, {:class=>'form-control'})

@@ -1,0 +1,52 @@
+= form_for @species do |f|
+  - if @species.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@species.errors.count, "error")} prohibited this species from being saved:"
+      %ul
+        - @species.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :potential_biomass
+    = f.text_field :potential_biomass
+  .field
+    = f.label :species
+    = f.text_field :species
+  .field
+    = f.label :threat_status
+    = f.text_field :threat_status
+  .field
+    = f.label :sa_endemic
+    = f.text_field :sa_endemic
+  .field
+    = f.label :sysnonym_of
+    = f.text_field :sysnonym_of
+  .field
+    = f.label :common_name
+    = f.text_field :common_name
+  .field
+    = f.label :life_cycle
+    = f.text_field :life_cycle
+  .field
+    = f.label :growth_forms
+    = f.text_field :growth_forms
+  .field
+    = f.label :min_hieght
+    = f.text_field :min_hieght
+  .field
+    = f.label :max_height
+    = f.text_field :max_height
+  .field
+    = f.label :min_altitude
+    = f.text_field :min_altitude
+  .field
+    = f.label :max_altitude
+    = f.text_field :max_altitude
+  .field
+    = f.label :distribution
+    = f.text_field :distribution
+  .actions
+    = f.submit 'Save'
