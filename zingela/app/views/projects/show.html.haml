@@ -20,10 +20,10 @@
   = @project.date_changed
 %p
   %b User:
-  = @project.user_id
-%p
-  %b Company:
-  = @project.company_id
+  = User.find(@project.user_id).email
+-# %p
+-#   %b Company:
+-#   = Company.find(@project.company_id).company_name
 
 = link_to 'Edit', edit_project_path(@project)
 \|

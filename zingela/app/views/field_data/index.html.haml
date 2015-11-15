@@ -1,0 +1,25 @@
+%h1 Listing Field data
+
+%table.table
+  %thead
+    %tr
+      %th Date
+      %th Location
+      %th Project
+      %th User
+      %th
+      %th
+      %th
+  %tbody
+    - @field_data.each do |field_datum|
+      %tr
+        %td= field_datum.date
+        %td= field_datum.location_id
+        %td= Project.find(field_datum.project_id).name
+        %td= User.find(field_datum.user_id).email
+        %td= link_to 'Show', field_datum
+        %td= link_to 'Edit', edit_field_datum_path(field_datum)
+        %td= link_to 'Destroy', field_datum, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br
+
+= link_to 'New Field data', new_field_datum_path
