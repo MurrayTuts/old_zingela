@@ -9,4 +9,4 @@ admin = Admin.new
 admin.email = 'murraycatto@live.co.za'
 admin.password = 'Password123'
 admin.password_confirmation = 'Password123'
-#admin.save!
+admin.save!

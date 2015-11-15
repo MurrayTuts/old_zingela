@@ -1,0 +1,40 @@
+= form_for @field_datum do |f|
+  - if @field_datum.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@field_datum.errors.count, "error")} prohibited this field_datum from being saved:"
+      %ul
+        - @field_datum.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :date
+    = f.date_select :date
+  .field
+    = f.label :location_id
+    = f.collection_select(:location_id, Location.all, :id, :name, {}, {:class=>'form-control'})
+  .field
+    = f.label :latitude_degree
+    = f.number_field :latitude_degree,:class=>'form-control'
+  .field
+    = f.label :latitude_minutes
+    = f.number_field :latitude_minutes,:class=>'form-control'
+  .field
+    = f.label :latitude_seconds
+    = f.text_field :latitude_seconds,:class=>'form-control'
+  .field
+    = f.label :longitude_degree
+    = f.number_field :longitude_degree,:class=>'form-control'
+  .field
+    = f.label :longitude_minutes
+    = f.number_field :longitude_minutes,:class=>'form-control'
+  .field
+    = f.label :longitude_seconds
+    = f.text_field :longitude_seconds,:class=>'form-control'
+  .field
+    = f.label :habitat_description
+    = f.text_field :habitat_description,:class=>'form-control'
+  .field
+    = f.label :project_id
+    = f.collection_select(:project_id, Project.all, :id, :name, {}, {:class=>'form-control'})
+
+  .actions
+    = f.submit 'Save'

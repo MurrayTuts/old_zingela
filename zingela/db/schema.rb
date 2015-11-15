@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109210340) do
+ActiveRecord::Schema.define(version: 20151115214853) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255
@@ -55,16 +55,68 @@ ActiveRecord::Schema.define(version: 20151109210340) do
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree
   add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
 
+  create_table "field_data", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "location_id",         limit: 4
+    t.integer  "latitude_degree",     limit: 4
+    t.integer  "latitude_minutes",    limit: 4
+    t.float    "latitude_seconds",    limit: 24
+    t.integer  "longitude_degree",    limit: 4
+    t.integer  "longitude_minutes",   limit: 4
+    t.float    "longitude_seconds",   limit: 24
+    t.string   "habitat_description", limit: 255
+    t.integer  "project_id",          limit: 4
+    t.integer  "user_id",             limit: 4
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "country",    limit: 255
+    t.string   "province",   limit: 255
+    t.string   "city",       limit: 255
+    t.string   "address_1",  limit: 255
+    t.string   "address_2",  limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "manages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "desc",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",                   limit: 255
+    t.date     "start_date"
+    t.date     "expected_delivery_date"
+    t.date     "actual_delivery_date"
+    t.boolean  "active"
+    t.date     "date_changed"
+    t.integer  "user_id",                limit: 4
+    t.integer  "company_id",             limit: 4
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  create_table "species", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.string   "potential_biomass", limit: 255
+    t.string   "species",           limit: 255
+    t.string   "threat_status",     limit: 255
+    t.string   "sa_endemic",        limit: 255
+    t.string   "sysnonym_of",       limit: 255
+    t.string   "common_name",       limit: 255
+    t.string   "life_cycle",        limit: 255
+    t.string   "growth_forms",      limit: 255
+    t.string   "min_hieght",        limit: 255
+    t.string   "max_height",        limit: 255
+    t.string   "min_altitude",      limit: 255
+    t.string   "max_altitude",      limit: 255
+    t.string   "distribution",      limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "users", force: :cascade do |t|
