@@ -1,0 +1,48 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @species.name
+%p
+  %b Potential biomass:
+  = @species.potential_biomass
+%p
+  %b Species:
+  = @species.species
+%p
+  %b Threat status:
+  = @species.threat_status
+%p
+  %b Sa endemic:
+  = @species.sa_endemic
+%p
+  %b Sysnonym of:
+  = @species.sysnonym_of
+%p
+  %b Common name:
+  = @species.common_name
+%p
+  %b Life cycle:
+  = @species.life_cycle
+%p
+  %b Growth forms:
+  = @species.growth_forms
+%p
+  %b Min hieght:
+  = @species.min_hieght
+%p
+  %b Max height:
+  = @species.max_height
+%p
+  %b Min altitude:
+  = @species.min_altitude
+%p
+  %b Max altitude:
+  = @species.max_altitude
+%p
+  %b Distribution:
+  = @species.distribution
+
+= link_to 'Edit', edit_species_path(@species)
+\|
+= link_to 'Back', species_index_path

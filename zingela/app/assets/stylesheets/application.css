@@ -16,13 +16,18 @@
 .alert{
   border-radius: 0px !important;
   margin: 0px;
+  text-align: center;
 }
 .navbar-brand {
     height: 60px;
     margin: 0px;
     padding: 5px;
 }
-.navbar-default .navbar-nav a{
+.navbar-inverse {
+  border-radius: 0px;
+  border: 0px;
+}
+.navbar-inverse .navbar-nav a{
     height: 60px;
     padding-top: 25px;
 }
@@ -38,8 +43,8 @@
 .login-container h2 {
     padding: 10px;
     text-align: center;
-    background: #444 none repeat scroll 0% 0%;
-    color: #f1f1ff;
+    color: #777;
+    background: rgb(34, 34, 34) none repeat scroll 0%
 }
 
 .login-form-container {
@@ -103,15 +108,18 @@ a:hover,a:focus{
   margin-right: 5px;
 }
 .nav.nav-pills > li > a:hover{
-  color: #444;
+  color: #FFF;
+  background-color: #080808;
 }
-.nav.nav-pills > li.active > a:hover{
-  color: #fff;
+.nav.nav-pills > li.active > a {
+   color: #FFF;
+   background-color: #080808;
 }
-.nav.nav-pills > li.active > a{
-  background: #c3c3c3;
-
+.z-index{
+  z-index: 2;
+  display: block;
+  position: relative;
 }
-body {
+/*body {
     background-color: #F1F1F1;
-  }
+  }*/

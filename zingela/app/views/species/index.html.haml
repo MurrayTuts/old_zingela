@@ -1,0 +1,47 @@
+%h1 Listing species
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Potential biomass
+      %th Species
+      %th Threat status
+      %th Sa endemic
+      %th Sysnonym of
+      %th Common name
+      %th Life cycle
+      %th Growth forms
+      %th Min hieght
+      %th Max height
+      %th Min altitude
+      %th Max altitude
+      %th Distribution
+      %th
+      %th
+      %th
+
+  %tbody
+    - @species.each do |species|
+      %tr
+        %td= species.name
+        %td= species.potential_biomass
+        %td= species.species
+        %td= species.threat_status
+        %td= species.sa_endemic
+        %td= species.sysnonym_of
+        %td= species.common_name
+        %td= species.life_cycle
+        %td= species.growth_forms
+        %td= species.min_hieght
+        %td= species.max_height
+        %td= species.min_altitude
+        %td= species.max_altitude
+        %td= species.distribution
+        %td= link_to 'Show', species
+        %td= link_to 'Edit', edit_species_path(species)
+        %td= link_to 'Destroy', species, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Species', new_species_path
