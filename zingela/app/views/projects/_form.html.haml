@@ -8,21 +8,27 @@
 
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, class: "form-control"
   .field
     = f.label :start_date
+    %br
     = f.date_select :start_date
   .field
     = f.label :expected_delivery_date
+    %br
     = f.date_select :expected_delivery_date
   .field
     = f.label :actual_delivery_date
+    %br
     = f.date_select :actual_delivery_date
+
+  .field
+    = f.label :date_changed
+    %br
+    = f.date_select :date_changed
   .field
     = f.label :active
     = f.check_box :active
-  .field
-    = f.label :date_changed
-    = f.date_select :date_changed
+  .clear-20
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn-success btn pull-right"

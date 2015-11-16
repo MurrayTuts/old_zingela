@@ -2,8 +2,7 @@
   Edit
   %small
     Field data
-= render 'form'
-
-= link_to 'Show', @field_datum
-\|
-= link_to 'Back', field_data_path
+.col-lg-10
+  = render 'form'
+  = link_to 'Show', @field_datum, class: "btn btn-primary"
+  = link_to 'Back', field_data_path, class: "btn btn-default"

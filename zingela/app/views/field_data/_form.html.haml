@@ -7,6 +7,7 @@
           %li= msg
   .field
     = f.label :date
+    %br
     = f.date_select :date
   .field
     = f.label :location_id
@@ -35,6 +36,6 @@
   .field
     = f.label :project_id
     = f.collection_select(:project_id, Project.all, :id, :name, {}, {:class=>'form-control'})
-
+  .clear-20
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn btn-success pull-right"

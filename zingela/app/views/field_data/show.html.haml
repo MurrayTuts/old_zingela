@@ -1,39 +1,41 @@
-%p#notice= notice
+%h1.page-header
+  Show
+  %small
+    Field Data
+.col-lg-10
+  %h4
+    %b Date:
+    = @field_datum.date
+  %h4
+    %b Location:
+    = @field_datum.location_id
+  %h4
+    %b Latitude degree:
+    = @field_datum.latitude_degree
+  %h4
+    %b Latitude minutes:
+    = @field_datum.latitude_minutes
+  %h4
+    %b Latitude seconds:
+    = @field_datum.latitude_seconds
+  %h4
+    %b Longitude degree:
+    = @field_datum.longitude_degree
+  %h4
+    %b Longitude minutes:
+    = @field_datum.longitude_minutes
+  %h4
+    %b Longitude seconds:
+    = @field_datum.longitude_seconds
+  %h4
+    %b Habitat description:
+    = @field_datum.habitat_description
+  %h4
+    %b Project:
+    = Project.find(@field_datum.project_id).name
+  %h4
+    %b User:
+    = User.find(@field_datum.user_id).email
 
-%p
-  %b Date:
-  = @field_datum.date
-%p
-  %b Location:
-  = @field_datum.location_id
-%p
-  %b Latitude degree:
-  = @field_datum.latitude_degree
-%p
-  %b Latitude minutes:
-  = @field_datum.latitude_minutes
-%p
-  %b Latitude seconds:
-  = @field_datum.latitude_seconds
-%p
-  %b Longitude degree:
-  = @field_datum.longitude_degree
-%p
-  %b Longitude minutes:
-  = @field_datum.longitude_minutes
-%p
-  %b Longitude seconds:
-  = @field_datum.longitude_seconds
-%p
-  %b Habitat description:
-  = @field_datum.habitat_description
-%p
-  %b Project:
-  = @field_datum.project_id
-%p
-  %b User:
-  = @field_datum.user_id
-
-= link_to 'Edit', edit_field_datum_path(@field_datum)
-\|
-= link_to 'Back', field_data_path
+  = link_to 'Edit', edit_field_datum_path(@field_datum), class: "btn btn-primary"
+  = link_to 'Back', field_data_path, class: "btn btn-default"
