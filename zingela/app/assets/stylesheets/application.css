@@ -120,6 +120,15 @@ a:hover,a:focus{
   display: block;
   position: relative;
 }
+.btn-primary{
+  color: #fff !important;
+}
+.btn-danger{
+  color: #fff !important;
+}
+.btn-default{
+  color: #444;
+}
 /*body {
     background-color: #F1F1F1;
   }*/
