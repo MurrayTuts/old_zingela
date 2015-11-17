@@ -12,7 +12,6 @@ before_filter :deny_to_users_and_admins
   def create
     super
     if resource.errors.empty?
-      resource.update(company_id:current_company.id)
       sign_out resource
     end
   end
@@ -64,6 +63,11 @@ before_filter :deny_to_users_and_admins
   # end
   private
   def deny_to_users_and_admins
-    redirect_to new_company_session_path unless company_signed_in?
+    redirect_to new_admin_session_path unless admin_signed_in?
+  end
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :company_id
   end
 end
