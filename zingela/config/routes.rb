@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "user/registrations" }
   get '/sign_out' => 'devise/sessions#destroy'
   controller :manage do
-    get 'manage/companies'     => :companies
     get 'manage/users'   => :users
+    get 'edit/user/:id'   => :edit_user
+    get 'delete/user/:id'   => :delete_user
+    patch 'update/user/:id'   => :update_user
+    get 'manage/companies'     => :companies
     get 'edit/company/:id'   => :edit_company
     get 'delete/company/:id'   => :delete_company
     patch 'update/company/:id'   => :update_company

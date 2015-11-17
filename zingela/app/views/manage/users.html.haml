@@ -1,4 +1,7 @@
-%h1 Users
+%h1.page-header
+  Listing
+  %small
+    Users
 %table.table
   %thead
     %tr
@@ -12,7 +15,8 @@
       %tr
         %td= user.email
         %td= Company.find(user.company_id).company_name
-        %td= link_to 'Edit', edit_user_registration_path(user), class:"btn btn-default"
-        %td= link_to 'Destroy', user_registration_path(user), :method => :delete, :data => { :confirm => 'Are you sure?' }, class:"btn btn-danger"
-%br
+        %td
+          %a.btn.btn-default{:href => "/edit/user/#{user.id}"}Edit
+        %td
+          %a.btn.btn-danger{:href => "/delete/user/#{user.id}"}Delete
 = link_to 'New user', new_user_registration_path, class:"btn btn-success pull-right"
