@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118182936) do
+ActiveRecord::Schema.define(version: 20151118211252) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255
@@ -119,6 +119,13 @@ ActiveRecord::Schema.define(version: 20151118182936) do
     t.string   "distribution",      limit: 255
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "species_family_id", limit: 4
+  end
+
+  create_table "species_families", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

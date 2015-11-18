@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @species_family.name
+
+= link_to 'Edit', edit_species_family_path(@species_family)
+\|
+= link_to 'Back', species_families_path

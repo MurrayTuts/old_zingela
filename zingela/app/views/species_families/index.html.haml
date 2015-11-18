@@ -1,0 +1,21 @@
+%h1 Listing species_families
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @species_families.each do |species_family|
+      %tr
+        %td= species_family.name
+        %td= link_to 'Show', species_family
+        %td= link_to 'Edit', edit_species_family_path(species_family)
+        %td= link_to 'Destroy', species_family, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Species family', new_species_family_path
