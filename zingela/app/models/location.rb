@@ -1,3 +1,3 @@
 class Location < ActiveRecord::Base
-   belongs_to :field_data
+   has_many :field_datum
 end

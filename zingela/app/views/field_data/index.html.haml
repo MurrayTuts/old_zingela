@@ -14,11 +14,17 @@
       %th
   %tbody
     - @field_data.each do |field_datum|
+      -# -if field_datum.project.company_id == current_user.company_id
       %tr
         %td= field_datum.date
-        %td= Location.find(field_datum.location_id).name
-        %td= Project.find(field_datum.project_id).name
-        %td= User.find(field_datum.user_id).email
+        %td= field_datum.location.name
+        %td= field_datum.project.name
+        %td
+          - if User.exists?(field_datum.user_id)
+            = User.find(field_datum.user_id).email
+          - else
+            %span.error
+              User Deleted
         %td= link_to 'Show', field_datum, class: "btn btn-primary"
         %td= link_to 'Edit', edit_field_datum_path(field_datum), class: "btn btn-default"
         %td= link_to 'Delete', field_datum, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"

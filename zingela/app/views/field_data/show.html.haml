@@ -8,7 +8,7 @@
     = @field_datum.date
   %h4
     %b Location:
-    = @field_datum.location_id
+    = @field_datum.location.name
   %h4
     %b Latitude degree:
     = @field_datum.latitude_degree
@@ -32,10 +32,14 @@
     = @field_datum.habitat_description
   %h4
     %b Project:
-    = Project.find(@field_datum.project_id).name
+    = @field_datum.project_id.project.name
   %h4
     %b User:
-    = User.find(@field_datum.user_id).email
+    - if User.exists?(@field_datum.user_id)
+      = User.find(@field_datum.user_id).email
+    - else
+      %span.error
+        User Deleted
 
   = link_to 'Edit', edit_field_datum_path(@field_datum), class: "btn btn-primary"
   = link_to 'Back', field_data_path, class: "btn btn-default"

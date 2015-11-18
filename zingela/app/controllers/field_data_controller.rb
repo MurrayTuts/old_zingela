@@ -4,7 +4,9 @@ class FieldDataController < ApplicationController
   # GET /field_data
   # GET /field_data.json
   def index
-    @field_data = FieldDatum.all
+    projects = Project.where(company_id:current_user.company_id)
+
+    @field_data = FieldDatum.where(project: projects)
   end
 
   # GET /field_data/1

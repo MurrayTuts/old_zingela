@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.where(company_id:current_user.company_id)
   end
 
   # GET /projects/1
@@ -57,9 +57,10 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project.destroy
+    @project.active = false
+    @project.save!
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_url, notice: 'Project was successfully deactivated.' }
       format.json { head :no_content }
     end
   end

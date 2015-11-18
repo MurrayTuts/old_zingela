@@ -1,3 +1,4 @@
 class FieldDatum < ActiveRecord::Base
-  has_one :location
+  belongs_to :location
+  belongs_to :project
 end

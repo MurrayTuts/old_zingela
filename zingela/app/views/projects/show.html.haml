@@ -23,10 +23,11 @@
     = @project.date_changed
   %h4
     %b User:
-    = User.find(@project.user_id).email
-  -# %p
-  -#   %b Company:
-  -#   = Company.find(@project.company_id).company_name
+    - if User.exists?(@project.user_id)
+      = User.find(@project.user_id).email
+    - else
+      %span.error
+        User Deleted
 
   = link_to 'Edit', edit_project_path(@project), class: "btn btn-primary"
   = link_to 'Back', projects_path, class: "btn btn-default"

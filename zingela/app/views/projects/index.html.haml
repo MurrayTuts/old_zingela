@@ -21,7 +21,10 @@
           -else
             %i.fa.fa-times
 
-        %td= User.find(project.user_id).email
+        -if User.exists?(project.user_id)
+          %td= User.find(project.user_id).email
+        - else
+          %td.error User Deleted
         %td= link_to 'Show', project, class: "btn btn-primary"
         %td= link_to 'Edit', edit_project_path(project), class: "btn btn-default"
         %td= link_to 'Delete', project, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"

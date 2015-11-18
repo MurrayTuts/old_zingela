@@ -85,6 +85,9 @@ a:hover{
 .field_with_errors input{
     border: 2px solid #D12116;
 }
+.error{
+  color: #D12116;
+}
 .panel.panel-primary.create .panel-heading{
   border-radius: 0px;
 
