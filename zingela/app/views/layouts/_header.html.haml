@@ -27,8 +27,9 @@
               %b.caret
             %ul.dropdown-menu
               %li
-                %i.fa.fa-building
-                = Company.find(current_user.company_id).company_name
+                %a{:href => "/", :onclick => "return false;"}
+                  = Company.find(current_user.company_id).company_name
+                  %i.fa.fa-building
               %li
                 =link_to 'Logout <i class="fa fa-fw fa-power-off"></i>'.html_safe, destroy_user_session_path, :method => :delete
         - user_active = ""

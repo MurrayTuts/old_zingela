@@ -161,6 +161,9 @@ td .fa-times{
 div.field, div.actions {
     margin-bottom:0px;
 }
+.navbar-nav > li > .dropdown-menu{
+  padding: 0px;
+}
 /*body {
     background-color: #F1F1F1;
   }*/
