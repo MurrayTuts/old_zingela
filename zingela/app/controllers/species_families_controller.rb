@@ -25,7 +25,7 @@ class SpeciesFamiliesController < ApplicationController
   # POST /species_families.json
   def create
     @species_family = SpeciesFamily.new(species_family_params)
-
+    @species_family.company_id = current_user.company_id
     respond_to do |format|
       if @species_family.save
         format.html { redirect_to @species_family, notice: 'Species family was successfully created.' }

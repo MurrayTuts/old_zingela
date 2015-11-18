@@ -28,7 +28,6 @@ class FieldDataController < ApplicationController
   def create
     @field_datum = FieldDatum.new(field_datum_params)
     @field_datum.user_id = current_user.id
-    @field_datum.save!
     respond_to do |format|
       if @field_datum.save
         format.html { redirect_to @field_datum, notice: 'Field datum was successfully created.' }

@@ -69,6 +69,6 @@ class SpeciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def species_params
-      params.require(:species).permit(:name, :potential_biomass, :species, :threat_status, :sa_endemic, :sysnonym_of, :common_name, :life_cycle, :growth_forms, :min_hieght, :max_height, :min_altitude, :max_altitude, :distribution)
+      params.require(:species).permit(:name, :potential_biomass, :species, :threat_status, :sa_endemic, :sysnonym_of, :common_name, :life_cycle, :growth_forms, :min_hieght, :max_height, :min_altitude, :max_altitude, :distribution,:species_family)
     end
 end
