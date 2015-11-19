@@ -14,9 +14,8 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
-  socket: /tmp/mysql.sock
-
+  password: l0oph0le
+  host: localhost
 development:
   <<: *default
   database: zingela_development
