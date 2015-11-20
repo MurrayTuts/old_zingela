@@ -53,10 +53,7 @@ class SpeciesFamiliesController < ApplicationController
   # DELETE /species_families/1
   # DELETE /species_families/1.json
   def destroy
-    @species_families = SpeciesFamily.all
-    @species_families.each do |fam|
-      fam.destroy
-    end
+  
     @species_family.destroy
     respond_to do |format|
       format.html { redirect_to species_families_url, notice: 'Species family was successfully destroyed.' }

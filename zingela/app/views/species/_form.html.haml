@@ -14,7 +14,7 @@
     = f.text_field :potential_biomass, class: "form-control"
   .field
     = f.label :species_family_id
-    = f.collection_select(:species_family_id, SpeciesFamily.where(company_id: current_user.company_id), :id, :name, {}, {:class=>'form-control'})
+    = f.collection_select(:species_family_id, SpeciesFamily.all, :id, :name, {}, {:class=>'form-control'})
   .field
     = f.label :threat_status
     = f.text_field :threat_status, class: "form-control"
