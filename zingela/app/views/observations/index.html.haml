@@ -1,0 +1,23 @@
+%h1 Listing observations
+
+%table
+  %thead
+    %tr
+      %th Notes
+      %th Field data
+      %th
+      %th
+      %th
+
+  %tbody
+    - @observations.each do |observation|
+      %tr
+        %td= observation.notes
+        %td= observation.field_data_id
+        %td= link_to 'Show', observation
+        %td= link_to 'Edit', edit_observation_path(observation)
+        %td= link_to 'Destroy', observation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Observation', new_observation_path

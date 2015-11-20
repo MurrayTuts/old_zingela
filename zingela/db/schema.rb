@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118211730) do
+ActiveRecord::Schema.define(version: 20151120210435) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 20151118211730) do
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree
   add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
 
+  create_table "crown_diameters", force: :cascade do |t|
+    t.integer  "observation_id",       limit: 4
+    t.string   "lower_crown_diameter", limit: 255
+    t.string   "upper_crown_diameter", limit: 255
+    t.float    "transect_length",      limit: 24
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
   create_table "field_data", force: :cascade do |t|
     t.date     "date"
     t.integer  "location_id",         limit: 4
@@ -71,6 +80,13 @@ ActiveRecord::Schema.define(version: 20151118211730) do
     t.datetime "updated_at",                      null: false
   end
 
+  create_table "growth_forms", force: :cascade do |t|
+    t.integer  "observation_id", limit: 4
+    t.string   "description",    limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.string   "country",    limit: 255
@@ -80,12 +96,29 @@ ActiveRecord::Schema.define(version: 20151118211730) do
     t.string   "address_2",  limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "user_id",    limit: 4
     t.integer  "company_id", limit: 4
   end
 
   create_table "manages", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "observations", force: :cascade do |t|
+    t.string   "notes",         limit: 255
+    t.integer  "field_data_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "plant_covers", force: :cascade do |t|
+    t.float    "percentage",        limit: 24
+    t.float    "lower_class_limit", limit: 24
+    t.float    "upper_class_limit", limit: 24
+    t.float    "class_interval",    limit: 24
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "projects", force: :cascade do |t|

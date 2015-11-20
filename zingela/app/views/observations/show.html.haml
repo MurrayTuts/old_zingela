@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Notes:
+  = @observation.notes
+%p
+  %b Field data:
+  = @observation.field_data_id
+
+= link_to 'Edit', edit_observation_path(@observation)
+\|
+= link_to 'Back', observations_path

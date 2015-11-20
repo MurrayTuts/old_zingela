@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :deny_to_admins_and_companies
 
   # GET /locations
   # GET /locations.json
@@ -70,5 +71,9 @@ class LocationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
       params.require(:location).permit(:name, :country, :province, :city, :address_1, :address_2)
+    end
+    
+    def deny_to_admins_and_companies
+      redirect_to new_user_session_path unless user_signed_in?
     end
 end
