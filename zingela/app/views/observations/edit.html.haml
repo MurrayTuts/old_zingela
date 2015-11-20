@@ -1,7 +1,8 @@
-%h1 Editing observation
-
-= render 'form'
-
-= link_to 'Show', @observation
-\|
-= link_to 'Back', observations_path
+%h1.page-header
+  Editing
+  %small
+    Observation
+.col-lg-10
+  = render 'form'
+  = link_to 'Show', @observation, class: "btn btn-primary"
+  = link_to 'Back', observations_path, class: "btn btn-default"

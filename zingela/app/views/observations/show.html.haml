@@ -1,12 +1,13 @@
-%p#notice= notice
-
-%p
+%h1.page-header
+  Showing
+  %small
+    Observation
+%h4
   %b Notes:
   = @observation.notes
-%p
+%h4
   %b Field data:
-  = @observation.field_data_id
-
-= link_to 'Edit', edit_observation_path(@observation)
-\|
-= link_to 'Back', observations_path
+  = FieldDatum.find(@observation.field_data_id).full_name
+.clear-20  
+= link_to 'Edit', edit_observation_path(@observation), class: "btn btn-primary"
+= link_to 'Back', observations_path, class: "btn btn-default"

@@ -1,6 +1,8 @@
-%h1 Listing observations
-
-%table
+%h1.page-header
+  Listing
+  %small
+    observations
+%table.table
   %thead
     %tr
       %th Notes
@@ -13,11 +15,11 @@
     - @observations.each do |observation|
       %tr
         %td= observation.notes
-        %td= observation.field_data_id
-        %td= link_to 'Show', observation
-        %td= link_to 'Edit', edit_observation_path(observation)
-        %td= link_to 'Destroy', observation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= FieldDatum.find(observation.field_data_id).short_name
+        %td= link_to 'Show', observation, class: "btn btn-default"
+        %td= link_to 'Edit', edit_observation_path(observation), class: "btn btn-primary"
+        %td= link_to 'Destroy', observation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
 
 %br
 
-= link_to 'New Observation', new_observation_path
+= link_to 'New Observation', new_observation_path, class: "btn btn-success pull-right"

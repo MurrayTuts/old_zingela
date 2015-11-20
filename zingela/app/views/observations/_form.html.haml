@@ -8,9 +8,11 @@
 
   .field
     = f.label :notes
-    = f.text_field :notes
+    = f.text_field :notes, class: "form-control"
   .field
     = f.label :field_data_id
-    = f.number_field :field_data_id
+    -projects = Project.where(company_id:current_user.company_id)
+    = f.collection_select(:field_data_id, FieldDatum.where(project: projects), :id, :full_name , {}, {:class=>'form-control'})
+  .clear-20
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: "btn btn-success pull-right"

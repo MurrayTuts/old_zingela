@@ -5,7 +5,9 @@ class ObservationsController < ApplicationController
   # GET /observations
   # GET /observations.json
   def index
-    @observations = Observation.all
+    projects = Project.where(company_id:current_user.company_id)
+    field_data = FieldDatum.where(project: projects)
+    @observations = Observation.where(field_data_id: field_data)
   end
 
   # GET /observations/1
@@ -75,5 +77,5 @@ class ObservationsController < ApplicationController
 
     def deny_to_admins_and_companies
           redirect_to new_user_session_path unless user_signed_in?
-        end
     end
+end
