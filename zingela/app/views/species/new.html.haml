@@ -1,5 +1,8 @@
-%h1 New species
+%h1.page-header
+  New
+  %small
+    species
 
 = render 'form'
 
-= link_to 'Back', species_index_path
+= link_to 'Back', species_index_path, class: "btn btn-default"
