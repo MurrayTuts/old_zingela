@@ -54,6 +54,10 @@ class SpeciesController < ApplicationController
   # DELETE /species/1
   # DELETE /species/1.json
   def destroy
+    @species = Species.all
+    @species.each do |spe|
+      spe.destroy
+    end
     @species.destroy
     respond_to do |format|
       format.html { redirect_to species_index_url, notice: 'Species was successfully destroyed.' }
