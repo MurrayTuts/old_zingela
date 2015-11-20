@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 20151118211730) do
     t.string   "address_2",  limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "user_id",    limit: 4
     t.integer  "company_id", limit: 4
   end
 
