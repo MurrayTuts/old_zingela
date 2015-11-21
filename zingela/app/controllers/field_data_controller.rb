@@ -5,7 +5,6 @@ class FieldDataController < ApplicationController
   # GET /field_data.json
   def index
     projects = Project.where(company_id:current_user.company_id)
-
     @field_data = FieldDatum.where(project: projects)
   end
 
@@ -17,6 +16,7 @@ class FieldDataController < ApplicationController
   # GET /field_data/new
   def new
     @field_datum = FieldDatum.new
+    @field_datum.observations.new
   end
 
   # GET /field_data/1/edit
@@ -28,6 +28,7 @@ class FieldDataController < ApplicationController
   def create
     @field_datum = FieldDatum.new(field_datum_params)
     @field_datum.user_id = current_user.id
+    @field_datum.observations.new(observation_params)
     respond_to do |format|
       if @field_datum.save
         format.html { redirect_to @field_datum, notice: 'Field datum was successfully created.' }
@@ -72,6 +73,9 @@ class FieldDataController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_datum_params
       params.require(:field_datum).permit(:date, :location_id, :latitude_degree, :latitude_minutes, :latitude_seconds, :longitude_degree, :longitude_minutes, :longitude_seconds, :habitat_description, :project_id)
+    end
+    def observation_params
+      params.require(:observations).permit(:notes)
     end
     def deny_to_admins_and_companies
       redirect_to new_user_session_path unless user_signed_in?

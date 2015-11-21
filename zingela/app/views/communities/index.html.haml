@@ -1,6 +1,9 @@
-%h1 Listing communities
+%h1.page-header
+  Listing
+  %small
+    Communities
 
-%table
+%table.table
   %thead
     %tr
       %th Name
@@ -14,10 +17,10 @@
       %tr
         %td= community.name
         %td= community.desctiption
-        %td= link_to 'Show', community
-        %td= link_to 'Edit', edit_community_path(community)
-        %td= link_to 'Destroy', community, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to 'Show', community, class: "btn btn-default"
+        %td= link_to 'Edit', edit_community_path(community), class: "btn btn-primary"
+        %td= link_to 'Destroy', community, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
 
 %br
 
-= link_to 'New Community', new_community_path
+= link_to 'New Community', new_community_path, class: "btn btn-success pull-right"

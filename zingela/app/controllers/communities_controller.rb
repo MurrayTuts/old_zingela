@@ -4,7 +4,8 @@ class CommunitiesController < ApplicationController
   # GET /communities
   # GET /communities.json
   def index
-    @communities = Community.all
+    projects = Project.where(company_id:current_user.company_id)
+    @communities = Community.where(project: projects)
   end
 
   # GET /communities/1
@@ -69,6 +70,6 @@ class CommunitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def community_params
-      params.require(:community).permit(:name, :desctiption)
+      params.require(:community).permit(:name, :desctiption, :project_id)
     end
 end

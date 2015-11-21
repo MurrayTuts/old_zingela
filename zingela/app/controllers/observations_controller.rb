@@ -5,9 +5,10 @@ class ObservationsController < ApplicationController
   # GET /observations
   # GET /observations.json
   def index
-    projects = Project.where(company_id:current_user.company_id)
-    field_data = FieldDatum.where(project: projects)
-    @observations = Observation.where(field_data_id: field_data)
+    # projects = Project.where(company_id:current_user.company_id)
+    # field_data = FieldDatum.where(project: projects)
+    # @observations = Observation.where(field_data_id: field_data)
+    @observations = Observation.all
   end
 
   # GET /observations/1

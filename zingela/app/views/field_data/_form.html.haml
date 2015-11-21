@@ -12,22 +12,22 @@
   .field
     = f.label :location_id
     = f.collection_select(:location_id, Location.where(company_id: current_user.company_id), :id, :name, {}, {:class=>'form-control'})
-  .field
+  .field.col-lg-4
     = f.label :latitude_degree
     = f.number_field :latitude_degree,:class=>'form-control'
-  .field
+  .field.col-lg-4
     = f.label :latitude_minutes
     = f.number_field :latitude_minutes,:class=>'form-control'
-  .field
+  .field.col-lg-4
     = f.label :latitude_seconds
     = f.text_field :latitude_seconds,:class=>'form-control'
-  .field
+  .field.col-lg-4
     = f.label :longitude_degree
     = f.number_field :longitude_degree,:class=>'form-control'
-  .field
+  .field.col-lg-4
     = f.label :longitude_minutes
     = f.number_field :longitude_minutes,:class=>'form-control'
-  .field
+  .field.col-lg-4
     = f.label :longitude_seconds
     = f.text_field :longitude_seconds,:class=>'form-control'
   .field
@@ -36,6 +36,12 @@
   .field
     = f.label :project_id
     = f.collection_select(:project_id, Project.where(company_id:current_user.company_id), :id, :name, {}, {:class=>'form-control'})
+  .clear-20
+  %a{:href => "/", class:"btn btn-primary btn-sm"}
+    %i.fa-plus.fa
+    New Observation
+  = fields_for :observations do |builder|
+    = render 'observations', f:builder
   .clear-20
   .actions
     = f.submit 'Save', class: "btn btn-success pull-right"

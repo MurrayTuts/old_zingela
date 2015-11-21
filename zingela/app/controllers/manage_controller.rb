@@ -48,6 +48,6 @@ class ManageController < ApplicationController
         params.require(:company).permit(:company_name, :email, :password, :password_confirmation)
     end
     def user_params
-        params.require(:user).permit(:email, :password, :password_confirmation)
+        params.require(:user).permit(:email, :password, :password_confirmation, :company_id)
     end
 end

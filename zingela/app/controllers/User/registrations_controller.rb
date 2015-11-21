@@ -11,10 +11,12 @@ before_filter :deny_to_users_and_admins
   # POST /resource
   def create
     super
+    resource.update(user_params)
     if resource.errors.empty?
       sign_out resource
     end
   end
+
 
   # GET /resource/edit
   # def edit
@@ -64,6 +66,9 @@ before_filter :deny_to_users_and_admins
   private
   def deny_to_users_and_admins
     redirect_to new_admin_session_path unless admin_signed_in?
+  end
+  def  user_params
+    params.require(:user).permit(:company_id)
   end
   protected
 

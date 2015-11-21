@@ -32,7 +32,7 @@
     = @field_datum.habitat_description
   %h4
     %b Project:
-    = @field_datum.project_id.project.name
+    = @field_datum.project.name
   %h4
     %b User:
     - if User.exists?(@field_datum.user_id)
@@ -40,6 +40,8 @@
     - else
       %span.error
         User Deleted
-
+  - puts "HEy #{}"
+  - @field_datum.observations.each do |obs|
+    = obs.notes
   = link_to 'Edit', edit_field_datum_path(@field_datum), class: "btn btn-primary"
   = link_to 'Back', field_data_path, class: "btn btn-default"
