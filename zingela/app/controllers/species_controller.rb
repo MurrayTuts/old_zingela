@@ -1,5 +1,6 @@
 class SpeciesController < ApplicationController
   before_action :set_species, only: [:show, :edit, :update, :destroy]
+  before_action :deny_to_admins_and_companies
 
   # GET /species
   # GET /species.json
@@ -54,6 +55,7 @@ class SpeciesController < ApplicationController
   # DELETE /species/1
   # DELETE /species/1.json
   def destroy
+
     @species.destroy
     respond_to do |format|
       format.html { redirect_to species_index_url, notice: 'Species was successfully destroyed.' }
@@ -69,6 +71,11 @@ class SpeciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def species_params
-      params.require(:species).permit(:name, :potential_biomass, :species, :threat_status, :sa_endemic, :sysnonym_of, :common_name, :life_cycle, :growth_forms, :min_hieght, :max_height, :min_altitude, :max_altitude, :distribution,:species_family)
+      params.require(:species).permit(:name, :potential_biomass, :species, :threat_status, :sa_endemic, :sysnonym_of, :common_name, :life_cycle, :growth_forms, :min_hieght, :max_height, :min_altitude, :max_altitude, :distribution,:species_family_id)
     end
+    
+    def deny_to_admins_and_companies
+      redirect_to new_user_session_path unless user_signed_in?
+    end
+
 end
