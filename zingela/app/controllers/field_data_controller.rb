@@ -28,7 +28,10 @@ class FieldDataController < ApplicationController
   def create
     @field_datum = FieldDatum.new(field_datum_params)
     @field_datum.user_id = current_user.id
-    @field_datum.observations.new(observation_params)
+    # @field_datum.observations.each do |obs|
+    #   obs.new(observation_params)
+    #   obs.field_datum_id = @field_datum.id
+    # end
     respond_to do |format|
       if @field_datum.save
         format.html { redirect_to @field_datum, notice: 'Field datum was successfully created.' }
@@ -69,10 +72,9 @@ class FieldDataController < ApplicationController
     def set_field_datum
       @field_datum = FieldDatum.find(params[:id])
     end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_datum_params
-      params.require(:field_datum).permit(:date, :location_id, :latitude_degree, :latitude_minutes, :latitude_seconds, :longitude_degree, :longitude_minutes, :longitude_seconds, :habitat_description, :project_id)
+      params.require(:field_datum).permit(:date, :location_id, :latitude_degree, :latitude_minutes, :latitude_seconds, :longitude_degree, :longitude_minutes, :longitude_seconds, :habitat_description, :project_id,observations_attributes:[:id ,:notes ,:_destroy])
     end
     def observation_params
       params.require(:observations).permit(:notes)

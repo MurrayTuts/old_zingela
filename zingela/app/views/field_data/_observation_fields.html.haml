@@ -1,0 +1,12 @@
+.nested-fields
+  .clear-20
+  %h4
+    Observation
+  = f.label :notes
+  = f.text_field :notes, class: "form-control"
+  .clear-20
+  .field
+    = link_to_remove_association "Remove Observation", f
+    -# %a{:href => "#", class:"btn btn-danger btn-sm", onclick:"removeFields(this); return false;"}
+    -#   %i.fa-minus.fa
+    -#   Remove Observation

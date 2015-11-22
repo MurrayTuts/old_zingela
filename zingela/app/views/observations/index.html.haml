@@ -15,7 +15,7 @@
     - @observations.each do |observation|
       %tr
         %td= observation.notes
-        -# %td= FieldDatum.find(observation.field_data_id).short_name
+        %td= observation.field_datum.short_name
         %td= link_to 'Show', observation, class: "btn btn-default"
         %td= link_to 'Edit', edit_observation_path(observation), class: "btn btn-primary"
         %td= link_to 'Destroy', observation, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
