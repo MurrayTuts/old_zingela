@@ -38,6 +38,9 @@
     = f.collection_select(:project_id, Project.where(company_id:current_user.company_id), :id, :name, {}, {:class=>'form-control'})
   .clear-20
   #observations
+    = f.fields_for :observations do |builder|
+      = render 'observation_fields', f:builder
+  .clear-20
   .links
     = link_to_add_association '<i class="fa-plus fa"></i> Add Observation'.html_safe, f, :observations, class: "btn btn-primary btn-sm"
 

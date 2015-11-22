@@ -19,16 +19,6 @@
     %li
       =link_to 'Manage <i class="fa fa-fw fa-pencil"></i>'.html_safe, field_data_path
 %li
-  %a{"data-target" => "#observation", "data-toggle" => "collapse", :href => "javascript:;"}
-    %i.fa.fa-eye
-    Observations
-    %i.fa.fa-fw.fa-caret-down
-  %ul#observation.collapse
-    %li
-      =link_to 'New <i class="fa fa-fw fa-plus"></i>'.html_safe, new_observation_path
-    %li
-      =link_to 'Manage <i class="fa fa-fw fa-pencil"></i>'.html_safe, observations_path
-%li
   %a{"data-target" => "#species_family", "data-toggle" => "collapse", :href => "javascript:;"}
     %i.fa.fa-globe
     Speices Family
