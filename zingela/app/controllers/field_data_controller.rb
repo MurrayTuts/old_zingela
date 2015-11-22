@@ -16,7 +16,6 @@ class FieldDataController < ApplicationController
   # GET /field_data/new
   def new
     @field_datum = FieldDatum.new
-    @field_datum.observations.new
   end
 
   # GET /field_data/1/edit
@@ -28,10 +27,6 @@ class FieldDataController < ApplicationController
   def create
     @field_datum = FieldDatum.new(field_datum_params)
     @field_datum.user_id = current_user.id
-    # @field_datum.observations.each do |obs|
-    #   obs.new(observation_params)
-    #   obs.field_datum_id = @field_datum.id
-    # end
     respond_to do |format|
       if @field_datum.save
         format.html { redirect_to @field_datum, notice: 'Field datum was successfully created.' }
@@ -74,10 +69,7 @@ class FieldDataController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def field_datum_params
-      params.require(:field_datum).permit(:date, :location_id, :latitude_degree, :latitude_minutes, :latitude_seconds, :longitude_degree, :longitude_minutes, :longitude_seconds, :habitat_description, :project_id,observations_attributes:[:id ,:notes ,:_destroy])
-    end
-    def observation_params
-      params.require(:observations).permit(:notes)
+      params.require(:field_datum).permit(:date, :location_id, :latitude_degree, :latitude_minutes, :latitude_seconds, :longitude_degree, :longitude_minutes, :longitude_seconds, :habitat_description, :project_id,observations_attributes:[:id ,:notes ,:_destroy,growth_forms_attributes:[:id,:description]])
     end
     def deny_to_admins_and_companies
       redirect_to new_user_session_path unless user_signed_in?

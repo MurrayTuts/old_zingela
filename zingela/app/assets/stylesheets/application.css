@@ -134,7 +134,7 @@ a:hover,a:focus{
 }
 select{
   display: block;
-  width: 33%;
+  width: 33.333%;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
@@ -163,6 +163,21 @@ div.field, div.actions {
 }
 .navbar-nav > li > .dropdown-menu{
   padding: 0px;
+}
+.no-padding-left{
+  padding-left: 0px;
+}
+.no-padding-right{
+  padding-right: 0px;
+}
+.nested-fields{
+    border: 1px solid #c3c3c3;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 5px 0px #c3c3c3;
+    -moz-box-shadow: 10px 10px 5px 0px  #c3c3c3;
+    box-shadow: 10px 10px 5px 0px #c3c3c3;
 }
 /*body {
     background-color: #F1F1F1;

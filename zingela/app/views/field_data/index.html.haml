@@ -2,6 +2,8 @@
   Listing
   %small
     Field Data
+= link_to '<i class="fa fa-plus"></i> New Field data'.html_safe, new_field_datum_path, class: "btn btn-success pull-right"
+
 %table.table
   %thead
     %tr
@@ -29,5 +31,3 @@
         %td= link_to 'Edit', edit_field_datum_path(field_datum), class: "btn btn-default"
         %td= link_to 'Delete', field_datum, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
 %br
-
-= link_to 'New Field data', new_field_datum_path, class: "btn btn-success pull-right"

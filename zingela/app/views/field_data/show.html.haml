@@ -40,8 +40,22 @@
     - else
       %span.error
         User Deleted
-  - puts "HEy #{}"
-  - @field_datum.observations.each do |obs|
-    = obs.notes
+  - if @field_datum.observations.count > 0
+    .nested-fields
+      %h1.page-header
+        Listing
+        %small
+          Observations
+      - @field_datum.observations.each do |obs|
+        %b Notes
+        = obs.notes
+        .nested-fields
+          %h2.page-header
+            Listing
+            %small
+              Growth forms
+          - obs.growth_forms.each do |grow|
+            %b Description
+            = grow.description
   = link_to 'Edit', edit_field_datum_path(@field_datum), class: "btn btn-primary"
   = link_to 'Back', field_data_path, class: "btn btn-default"
