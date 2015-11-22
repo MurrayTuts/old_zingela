@@ -2,6 +2,7 @@
   Listing
   %small
     Companies
+= link_to '<i class="fa fa-plus"></i> New Company'.html_safe, new_company_path, class: "btn btn-success pull-right"
 %table.table
   %thead
     %tr
@@ -21,7 +22,6 @@
           %a.btn.btn-default{:href => "/edit/company/#{company.id}"}Edit
         %td
           %a.btn.btn-primary{:href => "/edit/company/password/#{company.id}"}Password Update
-        %td
-          %a.btn.btn-danger{:href => "/delete/company/#{company.id}"}Delete
+        -# %td
+        -#   %a.btn.btn-danger{:href => "/delete/company/#{company.id}"}Delete
 %br
-= link_to 'New Company', new_company_registration_path, class:"btn btn-success pull-right"

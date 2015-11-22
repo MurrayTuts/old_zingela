@@ -2,6 +2,7 @@
   Listing
   %small
     Users
+= link_to '<i class="fa fa-plus"></i> New user'.html_safe, new_user_path, class: "btn btn-success pull-right"
 %table.table
   %thead
     %tr
@@ -19,6 +20,5 @@
           %a.btn.btn-default{:href => "/edit/user/#{user.id}"}Edit
         %td
           %a.btn.btn-primary{:href => "/edit/user/password/#{user.id}"}Password Update
-        %td
-          %a.btn.btn-danger{:href => "/delete/user/#{user.id}"}Delete
-= link_to 'New user', new_user_registration_path, class:"btn btn-success pull-right"
+        -# %td
+        -#   %a.btn.btn-danger{:href => "/delete/user/#{user.id}"}Delete
