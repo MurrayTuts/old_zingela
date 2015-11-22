@@ -6,6 +6,9 @@
   .field
     = f.label :notes
     = f.text_field :notes, class: "form-control"
+  .field
+    = f.label :notes
+    = f.collection_select(:species_id, Species.all, :id, :name, {}, {:class=>'form-control'})
   .clear-20
   #plant_covers
     - has_item =false

@@ -2,6 +2,8 @@
   Listing
   %small
     Locations
+= link_to '<i class="fa fa-plus"></i> New Location'.html_safe, new_location_path, class: "btn btn-success pull-right"
+
 %table.table
   %thead
     %tr
@@ -29,5 +31,3 @@
         %td= link_to 'Delete', location, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-danger"
 
 %br
-
-= link_to 'New Location', new_location_path, class: "btn btn-success pull-right"

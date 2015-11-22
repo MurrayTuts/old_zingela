@@ -20,6 +20,8 @@
         %td
           %a.btn.btn-default{:href => "/edit/company/#{company.id}"}Edit
         %td
+          %a.btn.btn-primary{:href => "/edit/company/password/#{company.id}"}Password Update
+        %td
           %a.btn.btn-danger{:href => "/delete/company/#{company.id}"}Delete
 %br
 = link_to 'New Company', new_company_registration_path, class:"btn btn-success pull-right"

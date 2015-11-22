@@ -24,11 +24,11 @@
   %ul.nav.navbar-nav.side-nav
     - if admin_signed_in?
       %li
-        =link_to 'New Company', new_company_registration_path
+        =link_to 'New Company', new_company_path
       %li
         =link_to 'Manage Companies', manage_companies_path
       %li
-        =link_to 'New User', new_user_registration_path
+        =link_to 'New User', new_user_path
       %li
         =link_to 'Manage Users', manage_users_path
     - if user_signed_in?

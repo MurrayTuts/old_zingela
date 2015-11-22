@@ -1,15 +1,40 @@
 class ManageController < ApplicationController
-  before_action :allow_admin, only: [:companies,:edit_company,:delete_company,:update_company,:users]
+  before_action :allow_admin
+
   def users
     @users = User.all
   end
+
+  def new_user
+    @user = User.new
+  end
+
+  def create_user
+    @user = User.new(user_params)
+    if @user.save
+          redirect_to manage_users_path , notice: 'User was successfully created.'
+        else
+          render :new_user
+    end
+  end
+
+  def edit_user_password
+    @user = User.find(params[:id])
+  end
+
+  def update_user_password
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      redirect_to manage_users_path, notice: 'Users password was successfully updated.'
+    else
+      render :edit_user_password
+    end
+  end
+
   def edit_user
     @user = User.find(params[:id])
   end
-  def delete_user
-    User.delete(params[:id])
-    redirect_to manage_users_path
-  end
+
   def update_user
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -19,24 +44,59 @@ class ManageController < ApplicationController
     end
   end
 
+  def delete_user
+    User.delete(params[:id])
+    redirect_to manage_users_path
+  end
+
+
+  def new_company
+    @company = Company.new
+  end
+
+  def create_company
+    @company = Company.new(company_params)
+    if @company.save
+          redirect_to manage_companies_path , notice: 'Company was successfully created.'
+        else
+          render :new_company
+    end
+  end
+
   def companies
     @companies = Company.all
   end
-  def edit_company
+
+  def edit_company_password
     @company = Company.find(params[:id])
   end
-  def delete_company
-    Company.delete(params[:id])
-    redirect_to manage_companies_path
+
+  def update_company_password
+    @company = Company.find(params[:id])
+    if @company.update(company_params)
+      redirect_to manage_companies_path, notice: 'Companys password was successfully updated.'
+    else
+      render :edit_company_password
+    end
+  end
+
+  def edit_company
+    @company = Company.find(params[:id])
   end
   def update_company
     @company = Company.find(params[:id])
     if @company.update(company_params)
-      redirect_to "/edit/company/#{@company.id}", notice: 'Company was successfully updated.'
+      redirect_to manage_companies_path, notice: 'Company was successfully updated.'
     else
       render :edit_company
     end
   end
+
+  def delete_company
+    Company.delete(params[:id])
+    redirect_to manage_companies_path
+  end
+
   private
     def allow_admin
       redirect_to new_admin_session_path unless admin_signed_in?
