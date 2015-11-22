@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :community_growth_forms
   resources :report_communities
   resources :communities
   resources :species_families

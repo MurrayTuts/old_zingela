@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122162001) do
+ActiveRecord::Schema.define(version: 20151122173411) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255
@@ -40,6 +40,27 @@ ActiveRecord::Schema.define(version: 20151122162001) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "project_id",  limit: 4
+  end
+
+  create_table "community_growth_forms", force: :cascade do |t|
+    t.string   "description",             limit: 255
+    t.integer  "count",                   limit: 4
+    t.float    "percentage_cover_mean",   limit: 24
+    t.float    "occurance_mean",          limit: 24
+    t.float    "slope",                   limit: 24
+    t.float    "intercept",               limit: 24
+    t.float    "percentage_cover",        limit: 24
+    t.float    "proportional_cover",      limit: 24
+    t.float    "mean_canopy_diameter",    limit: 24
+    t.float    "individuals_per_hectare", limit: 24
+    t.float    "std_deviation",           limit: 24
+    t.float    "std_error",               limit: 24
+    t.boolean  "has_strong_competitor"
+    t.boolean  "has_normal_competitor"
+    t.boolean  "has_weak_competitor"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "report_community_id",     limit: 4
   end
 
   create_table "companies", force: :cascade do |t|

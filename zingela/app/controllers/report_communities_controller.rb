@@ -5,7 +5,9 @@ class ReportCommunitiesController < ApplicationController
   # GET /report_communities
   # GET /report_communities.json
   def index
-    @report_communities = ReportCommunity.all
+    projects = Project.where(company_id:current_user.company_id)
+    communities = Community.where(project:projects)
+    @report_communities = ReportCommunity.where(community:communities)
   end
 
   # GET /report_communities/1

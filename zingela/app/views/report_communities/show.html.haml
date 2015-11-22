@@ -13,6 +13,6 @@
   = @report_community.individuals_per_hectare
 %h4
   %b Community:
-  = @report_community.community
+  = @report_community.community.name
 = link_to 'Edit', edit_report_community_path(@report_community), class: "btn btn-primary"
 = link_to 'Back', report_communities_path, class: "btn btn-default"
